@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SmartQueue</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #08152e, #142c50, #244d78);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            min-height: 550px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: white;
+            border-radius: 22px;
+            box-shadow: 0 25px 70px #0005;
+        }
+
+        .welcome {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            background: linear-gradient(150deg, #10294d, #1763a0);
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .welcome h1 {
+            font-size: 36px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .welcome p {
+            color: #d4e4f8;
+            line-height: 1.8;
+        }
+
+        .features {
+            margin-top: 28px;
+            line-height: 2.4;
+            color: #e5efff;
+        }
+
+        .form-panel {
+            padding: 45px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #10294d;
+            font-size: 29px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 19px;
+        }
+
+        label {
+            display: block;
+            color: #26374c;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d7dfeb;
+            border-radius: 9px;
+            outline: none;
+            font-size: 15px;
+            background: #fbfcff;
+        }
+
+        input:focus {
+            border-color: #2876c7;
+            box-shadow: 0 0 0 3px #2876c71c;
+        }
+
+        .password-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .toggle-password {
+            align-self: flex-start;
+            border: none;
+            background: transparent;
+            color: #1768b4;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 2px 0;
+        }
+
+        .toggle-password:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 9px;
+            color: white;
+            background: #1768b4;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #10538f;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 14px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .bottom-text {
+            margin-top: 23px;
+            text-align: center;
+            font-size: 14px;
+            color: #66758a;
+        }
+
+        a {
+            color: #1768b4;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                padding: 30px;
+            }
+
+            .welcome h1 {
+                font-size: 29px;
+            }
+
+            .features {
+                display: none;
+            }
+
+            .form-panel {
+                padding: 35px 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <section class="welcome">
+            <div class="brand">SmartQueue</div>
+
+            <h1>Better service.<br>Less waiting.</h1>
+
+            <p>
+                Create your account to access the SmartQueue
+                Management System and manage service tokens easily.
+            </p>
+
+            <div class="features">
+                ✓ Organised queue management<br>
+                ✓ Real-time token status<br>
+                ✓ Simple service tracking
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <h2>Create Account</h2>
+            <p class="subtitle">
+                Register to get started with SmartQueue.
+            </p>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter email address"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter password"
+                            minlength="8"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="toggle-password"
+                            id="togglePassword"
+                        >Show password</button>
+                    </div>
+                </div>
+
+                <button
+                    class="submit-btn"
+                    id="submitBtn"
+                    type="submit"
+                >
+                    Create Account →
+                </button>
+
+                <p class="message" id="message" role="status"></p>
+            </form>
+
+            <p class="bottom-text">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
+        </section>
+    </main>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+        const registerForm = document.getElementById("registerForm");
+        const message = document.getElementById("message");
+        const submitBtn = document.getElementById("submitBtn");
+
+        togglePassword.addEventListener("click", function () {
+            const show = passwordInput.type === "password";
+
+            passwordInput.type = show ? "text" : "password";
+            togglePassword.textContent =
+                show ? "Hide password" : "Show password";
+        });
+
+        registerForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            message.textContent = "";
+            message.style.color = "#b42318";
+
+            const username =
+                document.getElementById("username").value.trim();
+            const email =
+                document.getElementById("email").value.trim();
+            const password = passwordInput.value;
+
+            if (!username || !email || !password) {
+                message.textContent = "Please fill in all fields.";
+                return;
+            }
+
+            if (password.length < 8) {
+                message.textContent =
+                    "Password must contain at least 8 characters.";
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Creating account...";
+
+            try {
+                const response = await fetch("register_api.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        email: email,
+                        password: password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || data.error) {
+                    throw new Error(
+                        data.error || "Registration failed."
+                    );
+                }
+
+                message.style.color = "#16803c";
+                message.textContent =
+                    data.message || "Account created successfully!";
+
+                registerForm.reset();
+                passwordInput.type = "password";
+                togglePassword.textContent = "Show password";
+
+                setTimeout(function () {
+                    window.location.href = "login.html";
+                }, 1200);
+
+            } catch (error) {
+                message.style.color = "#b42318";
+                message.textContent =
+                    error.message || "Could not connect to the server.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Create Account →";
+            }
+        });
+    </script>
+</body>
+</html>
